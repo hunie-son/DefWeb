@@ -16,11 +16,9 @@ We develop a dynamic generative learning-based defense technique, DefWeb, to pro
 # Data Collection:
 ## Cache-based WF attack (Robust Website Fingerprinting Through the Cache Occupancy Channel)
 - For collecting Website Fingerprints for different websites, follow the steps mentioned below:<br/>
-- For the offline phase, the attacker can change the cache size in his device to match the victim's device and collect data which will be employed to train the ML model. 
-
-- Data collection for Google Chrome Browser: We have collected 100 WF measurements for each of 100 different websites [Website list](((https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/website_list.txt))).
- 
-- For the Demo, we are only using `PrimeProbe_Test_1.html` and `PrimeProbe_Test_2.html`, which is www.google.com and www.amazon.com, respectivly. 
+  * For the offline phase, the attacker can change the cache size in his device to match the victim's device and collect data which will be employed to train the ML model. 
+  * Data collection for Google Chrome Browser: We have collected 100 WF measurements for each of 100 different websites ([Website list]((https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/website_list.txt))
+  * For the Demo, we are only using `PrimeProbe_Test_1.html` and `PrimeProbe_Test_2.html`, which is www.google.com and www.amazon.com, respectivly. 
 - Preprocessing: We merge all the Collected csv files in one single file in name order.
 
 - Data collection for Firefox Browser:
