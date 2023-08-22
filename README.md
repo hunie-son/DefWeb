@@ -15,6 +15,8 @@ We develop a dynamic generative learning-based defense technique, DefWeb, to pro
 
 # Data Collection:
 ## Sweep-Counting (Cache-based WF attack)
+- For collecting Website Fingerprints for different websites, follow the steps mentioned below:<br/>
+
 ## Loop-Counting (Interrupt based WF attack)
 
 For collecting Website Fingerprints for different websites, follow the steps mentioned below:<br/>
