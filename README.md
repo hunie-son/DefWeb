@@ -19,7 +19,7 @@ We develop a dynamic generative learning-based defense technique, DefWeb, to pro
   * For the offline phase, the attacker can change the cache size in his device to match the victim's device and collect data which will be employed to train the ML model. 
   * Data collection for Google Chrome Browser: We have collected 100 WF measurements for each of 100 different websites [Website list](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/website_list.txt)
   * For the Demo, we are only using `PrimeProbe_Test_1.html` and `PrimeProbe_Test_2.html`, which is www.google.com and www.amazon.com, respectivly. 
-- Preprocessing: We merge all the Collected csv files in one single file in name order.
+
 
 - Data collection for Firefox Browser:
 The procedure is the same for Firefox Browser as well. For the Firefox Browser scenario, follow the commands below: <br/>
@@ -30,12 +30,16 @@ After preprocessing the data, the final data for different devices are allocated
 
 
 # WF Attack:
+- Preprocessing: We merge all the Collected csv files in one single file in name order.
 ### Instruction to run:
-- Offline phase:
+- Offline phase: CNN
 
 
 # DefWeb :
 ## Instruction to run:
+- Offline phase: VAE with two cluster->  
+- Figure Google -> Amazone figure
+
 ## SMC generated precise noise Template:
 
 
