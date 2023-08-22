@@ -8,6 +8,7 @@ do
     for ((i=1;i<=100;i++))
     do
         echo "Website: $j Mesurement: $i"
+        #Run Browser(Firefox) with JavaScript Code
         firefox PrimeProbe_Test_"$j".html &
         #base on the attack occurs 30s
         sleep 35s
