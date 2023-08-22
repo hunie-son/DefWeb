@@ -14,22 +14,18 @@ We develop a dynamic generative learning-based defense technique, DefWeb, to pro
 
 
 # Data Collection:
-## Sweep-Counting (Cache-based WF attack)
+## Cache-based WF attack (Robust Website Fingerprinting Through the Cache Occupancy Channel)
 - For collecting Website Fingerprints for different websites, follow the steps mentioned below:<br/>
-
-## Loop-Counting (Interrupt based WF attack)
-
-For collecting Website Fingerprints for different websites, follow the steps mentioned below:<br/>
 - For the offline phase, the attacker can change the cache size in his device to match the victim's device and collect data which will be employed to train the ML model. 
 
-- Data collection for Google Chrome Browser: We have collected 100 WF measurements for each of 100 different websites ([Website list]((https://github.com/website_list.txt)). We are going to record 100 individual measurements of 10 websites at a single run and save it in a single csv file. The `<name>.sh` is written to record data for the first 10 websites and will be saved in the `web1_10.csv` file. Similarly, the `<name>.sh` is responsible for collecting data for the next 10 websites and will be saved in `web11_20.csv` file. By following the commands mentioned below, five csv files will be created and saved in the directory, which we will call raw data. 
-
- - Preprocessing: We merge all the Collected csv files in one single file in name order.
+- Data collection for Google Chrome Browser: We have collected 100 WF measurements for each of 100 different websites ([Website list](([https://github.com/website_list.txt](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/website_list.txt))).
+ 
+- For the Demo, we are only using `PrimeProbe_Test_1.html` and `PrimeProbe_Test_2.html`, which is www.google.com and www.amazon.com, respectivly. 
+- Preprocessing: We merge all the Collected csv files in one single file in name order.
 
 - Data collection for Firefox Browser:
 The procedure is the same for Firefox Browser as well. For the Firefox Browser scenario, follow the commands below: <br/>
 
-  
 - Preprocessing: For preprocessing the raw data, run the  [Data_process_tor.m](https://github.com/main/Data_Collection/Data_process%20_tor.m) file in Python,
 
 After preprocessing the data, the final data for different devices are allocated to the appropriate folders.
