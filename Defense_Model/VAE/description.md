@@ -1,1 +1,0 @@
-#Variational AutoEncoder generate Noise
