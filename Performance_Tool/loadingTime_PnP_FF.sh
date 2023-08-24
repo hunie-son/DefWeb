@@ -2,12 +2,12 @@
 
 ###
 # Description :
-# This code is for Automatically running our Performance Tool (Mozilla Firefox) with reading 100 websites (from website_list.txt)
+# This code is for automatically running our Performance Tool (Mozilla Firefox) with reading 100 websites (from website_list.txt)
 # Run (1) prime_probe_Test.html to perform JavaScript-base Prime and Probe attacks.
-# (2) PerformanceTool_GC_PnP.py by inputting website address ("$line")
+# (2) PerformanceTool_FF_PnP.py by inputting website address ("$line")
 # (3) Close all taps
 #
-# Make sure Firefox driver is properly installed while running the PerformanceTool_GC_PnP.py code
+# Make sure the Firefox driver is properly installed while running the PerformanceTool_FF_PnP.py code
 #
 # Input : website_list.txt
 # Ouput : Loading Time
