@@ -3,11 +3,11 @@
 ###
 # Description :
 # This code is for Automatically running our Performance Tool (Google Chrome) with reading 100 websites (from website_list.txt)
-# Run (1) prime_probe_Test.html to perform JavaScript-base Prime and Probe attack.
-# (2) PerformanceTool_GC_PnP.py by inputing website address ("$line")
+# Run (1) prime_probe_Test.html to perform JavaScript-base Prime and Probe attacks.
+# (2) PerformanceTool_GC_PnP.py by inputting website address ("$line")
 # (3) Close all taps
 #
-# Make sure chrome driver is properly installed while runing PerformanceTool_GC_PnP.py code
+# Make sure the chrome driver is properly installed while running the PerformanceTool_GC_PnP.py code
 #
 # Input : website_list.txt
 # Ouput : Loading Time
@@ -25,19 +25,19 @@ do
 #do
 
   for ((m=50;m<=52;m++))
-  # value m can be change
+  # value m can be changed
   do
-    #JavaScript Code with PNP attack (no website address is contain this code)
-    web_file="prime_probe_Test.html"
+  #JavaScript Code with PNP attack (no website address contains this code)
+  	web_file="prime_probe_Test.html"
 
 
-    # echo  $webfile | ./python_code
-    # Run PNP code with chrome browser
-    google-chrome $web_file & 
+    	# echo  $webfile | ./python_code
+    	# Run PNP code with Chrome browser
+   	google-chrome $web_file & 
 
 
-    # Run our Performance Tool python code
-    python3 PerformanceTool_GC_PnP.py "$line"
+    	# Run our Performance Tool Python code
+    	python3 PerformanceTool_GC_PnP.py "$line"
     
 	wmctrl -c "Google Chrome"&
 	sleep 5s
