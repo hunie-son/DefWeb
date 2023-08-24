@@ -2,7 +2,7 @@
 
 ###
 # Description :
-# This code is for Automatically running our Performance Tool (Google Chrome) with reading 100 websites (from website_list.txt)
+# This code is for automatically running our Performance Tool (Google Chrome) with reading 100 websites (from website_list.txt)
 # Run (1) prime_probe_Test.html to perform JavaScript-base Prime and Probe attacks.
 # (2) PerformanceTool_GC_PnP.py by inputting website address ("$line")
 # (3) Close all taps
