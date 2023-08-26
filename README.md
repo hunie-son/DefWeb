@@ -36,7 +36,7 @@ We develop a dynamic generative learning-based defense technique, DefWeb, to pro
    * Collected 100 websites WF datasets are provided `DefWeb/Data_Collection/Firefox/Firefox_Collected_100`
 
 - Preprocessing:
-  * Merged CSV file (10,000 x 6,000) is large to upload in Github reposiptory.
+  * Merged CSV file (10,000 x 6,000) is large to upload in the Github reposiptory.
   * We provide preprocessing python code ([Preprocessing_WF.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/Preprocessing_WF.ipynb)) to create single csv file with name order. 
 
 After preprocessing the data, the final training data (trainX and trainY) will created.
