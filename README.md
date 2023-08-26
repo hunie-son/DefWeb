@@ -27,17 +27,18 @@ We develop a dynamic generative learning-based defense technique, DefWeb, to pro
   `./run_chrome.sh`<br/>
    * Collected 100 websites WF datasets are provided `DefWeb/Data_Collection/Chrome/Chrome_Collected_100`
 
-- Data collection for Firefox Browser:
-  * The procedure is the same as Chrome Browser. For the Firefox Browser scenario, follow the commands below: <br/>
+- Data collection for Mozilla Firefox Browser:
+  * The procedure is the same as Chrome Browser [Website list](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/website_list.txt). For the Firefox Browser scenario, follow the commands below: <br/>
    * Collecting WF dataset automatically using bash script <br/>
   `cd DefWeb/Data_Collection/Firefox`<br/>
   `./run_firefox.sh`<br/>
    * Collected 100 websites WF datasets are provided `DefWeb/Data_Collection/Firefox/Firefox_Collected_100`
 
+- Preprocessing:
+  * Merged CSV file (10,000 x 6,000) is large to upload in Github reposiptory.
+  * We provide preprocessing python code to create single csv file with name order. [Preprocessing_WF.ipynb](https://github.com/main/Data_Collection/Preprocessing_WF.ipynb) file in Python,
 
-- Preprocessing: For preprocessing the raw data, run the  [Data_process_tor.m](https://github.com/main/Data_Collection/Data_process%20_tor.m) file in Python,
-
-After preprocessing the data, the final data for different devices are allocated to the appropriate folders.
+After preprocessing the data, the final training data (trainX and trainY) will created.
 
 
 # WF Attack:
