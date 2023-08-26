@@ -43,15 +43,20 @@ After preprocessing the data, the final training data (trainX and trainY) will c
 
 
 # WF Attack:
-- Preprocessing: We merge all the Collected csv files in one single file in name order.
+- We use Convolutional Neural Networks (CNN) and Long Short-Term Memory Networks (LSTM) to conduct WF attacks.
+   * We provide CNN python code ([CNN_Final.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Attack_Model/CNN_Final.ipynb)) with explanation.
+   * Input data :
+<!----
 ### Instruction to run:
 - Offline phase: CNN
-
+-->
 
 # DefWeb :
+<!----
 ## Instruction to run:
 - Offline phase: VAE with two cluster->  
 - Figure Google -> Amazone figure
+-->
 
 ## SMC generated precise noise Template:
 
