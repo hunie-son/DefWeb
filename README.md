@@ -14,8 +14,9 @@ We develop a dynamic generative learning-based defense technique, DefWeb, to pro
 
 
 # Data Collection:
-## Cache-based WF attack (Robust Website Fingerprinting Through the Cache Occupancy Channel)
-<!---- For collecting Website Fingerprints for different websites, follow the steps mentioned below:<br/>
+## Cache-based WF attack 
+<!---- (Robust Website Fingerprinting Through the Cache Occupancy Channel)
+   For collecting Website Fingerprints for different websites, follow the steps mentioned below:<br/>
   * For the offline phase, the attacker can change the cache size in his device to match the victim's device and collect data, which will be employed to train the ML model. 
   -->
 
