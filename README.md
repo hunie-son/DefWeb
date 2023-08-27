@@ -22,7 +22,7 @@ We develop a dynamic generative learning-based defense technique, DefWeb, to pro
 
 - Data collection for Google Chrome Browser:
   * We have collected 100 WF measurements for each of 100 different websites [Website list](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/website_list.txt).
-  * For the Demo, we are only using `PrimeProbe_Test_1.html` and `PrimeProbe_Test_2.html`, which is www.google.com and www.amazon.com, respectively. (You can create 100 different Prime and Probe attack JavaScript code based on the [Website list](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/website_list.txt))
+  * For the Demo, we are only using `PrimeProbe_google.html` and `PrimeProbe_amazon.html`, which is www.google.com and www.amazon.com, respectively. (You can create 100 different Prime and Probe attack JavaScript code based on the [Website list](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/website_list.txt))
   * Collecting WF dataset automatically using bash script <br/>
   `cd DefWeb/Data_Collection/Chrome`<br/>
   `./run_chrome.sh`<br/>
@@ -36,7 +36,7 @@ We develop a dynamic generative learning-based defense technique, DefWeb, to pro
    * Collected 100 websites WF datasets are provided `DefWeb/Data_Collection/Firefox/Firefox_Collected_100`
 
 - Preprocessing:
-  * Merged CSV file (10,000 x 6,000) is large to upload in the Github reposiptory.
+  * Merged CSV file (10,000 x 6,000) is large to upload in the GitHub repository.
   * We provide preprocessing python code ([Preprocessing_WF.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/Preprocessing_WF.ipynb)) to create single csv file with name order. 
 
 After preprocessing the data, the final training data (trainX and trainY) will created.
