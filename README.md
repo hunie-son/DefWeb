@@ -45,13 +45,26 @@ After preprocessing the data, the final training data (trainX and trainY) will c
 # WF Attack:
 - We use Convolutional Neural Networks (CNN) and Long Short-Term Memory Networks (LSTM) to conduct WF attacks.
    * We provide CNN python code ([CNN_Final.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Attack_Model/CNN_Final.ipynb)) with explanation.
-   * Input data :
+   * We provide LSTM python code ([LSTM_Final.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Attack_Model/LSTM_Final.ipynb)) with explanation.
+   * Input data: Preprocessed data (For the demo, we use Google.com and Amazon.com only)
+   * Output: Accuracy
+  
 <!----
 ### Instruction to run:
 - Offline phase: CNN
 -->
 
 # DefWeb :
+- VAE: We use a Generative Deep Learning Model, Variational AutoEncoder(VAE), to create dynamic noise.
+ * d
+ * d
+ * d
+ * 
+- SMC: We use a Self-modifying Code (SMC) to generate practical noise template creation.
+ * d
+ * d
+ * d()
+ * 
 <!----
 ## Instruction to run:
 - Offline phase: VAE with two cluster->  
@@ -62,5 +75,8 @@ After preprocessing the data, the final training data (trainX and trainY) will c
 
 
 # Performace Tool
+- In this part, we automatically render(using Python library) the target website with Prime and Probe attack (JavaScript file) and calculate the webpage loading time.
+- We also perform website loading time with our DefWeb create noise template running.
+  
 ## Instruction to run:
 
