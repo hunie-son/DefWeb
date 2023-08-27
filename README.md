@@ -46,7 +46,7 @@ After preprocessing the data, the final training data (trainX and trainY) will c
 - We use Convolutional Neural Networks (CNN) and Long Short-Term Memory Networks (LSTM) to conduct WF attacks.
    * We provide CNN python code ([CNN_Final.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Attack_Model/CNN_Final.ipynb)) with explanation.
    * We provide LSTM python code ([LSTM_Final.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Attack_Model/LSTM_Final.ipynb)) with explanation.
-   * Input data: Preprocessed data (For the demo, we use Google.com and Amazon.com only)
+   * Input data: Preprocessed data (For the demo, we use www.google.com and www.amazon.com only)
    * Output: Accuracy
   
 <!----
