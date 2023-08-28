@@ -92,7 +92,7 @@ After preprocessing the data, the final training data (trainX and trainY) will c
 ## SMC generated precise noise Template:
 -->
 
-# Performace Tool
+# Performance Tool
 - In this part, we automatically render(using Python library) the target website with Prime and Probe attack (JavaScript file location) and calculate the webpage loading time.
 - Prerequisites: Chrome driver and Firefox driver need to be installed.
 - We also perform website loading time with our DefWeb create noise template running.
