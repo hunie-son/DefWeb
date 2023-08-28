@@ -23,7 +23,7 @@ We develop a dynamic generative learning-based defense technique, DefWeb, to pro
 - Data collection for Google Chrome Browser:
   * We have collected 100 WF measurements for each of 100 different websites [Website list](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/website_list.txt).
   * For the Demo, we are only using `PrimeProbe_google.html` and `PrimeProbe_amazon.html`, which is www.google.com and www.amazon.com, respectively. (You can create 100 different Prime and Probe attack JavaScript code based on the [Website list](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/website_list.txt))
-  * Collecting WF dataset 2 websites (www.amazon.com and www.google.com) automatically using bash script (Demo) <br/>
+  * Collecting WF dataset 2 websites (www.amazon.com and www.google.com) automatically using bash script (Demo version) <br/>
   `cd DefWeb/Data_Collection`<br/>
   `./run_demo.sh`<br/>
   * Collecting WF dataset 100 websites automatically using bash script (Chrome) <br/>
