@@ -51,8 +51,8 @@ K.clear_session()
 
 
 #Input data
-train_X = pd.read_csv('/DefWeb/Data_Collection/Chrome/Collected_100/trainX_100_US_Chrome.csv', header=None)
-train_Y = pd.read_csv('/DefWeb/Data_Collection/Chrome/Collected_100/trainY_100_US_Chrome.csv', header=None)
+train_X = pd.read_csv('/DefWeb/Data_Collection/trainX_100_US_Chrome.csv', header=None)
+train_Y = pd.read_csv('/DefWeb/Data_Collection/trainY_100_US_Chrome.csv', header=None)
 
 trainX = train_X.to_numpy()
 trainY = train_Y.to_numpy()
