@@ -19,11 +19,11 @@ We develop a dynamic generative learning-based defense technique, DefWeb, to pro
    For collecting Website Fingerprints for different websites, follow the steps mentioned below:<br/>
   * For the offline phase, the attacker can change the cache size in his device to match the victim's device and collect data, which will be employed to train the ML model. 
   -->
-
+- We demonstrate (Demo) with two Website Fingerprint (WF) datasets, which are www.google,com and www.amazon.com.
 - Data collection for Google Chrome Browser:
+  * (Demo) `PrimeProbe_google.html` and `PrimeProbe_amazon.html` are JavaScript codes that cond, which are www.google.com and www.amazon.com, respectively. (You can create 100 different Prime and Probe attack JavaScript code based on the [Website list](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/website_list.txt))
+  * (Demo) Collecting WF dataset 2 websites (www.amazon.com and www.google.com) automatically using bash script  <br/>
   * We have collected 100 WF measurements for each of 100 different websites [Website list](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/website_list.txt).
-  * For the Demo, we are only using `PrimeProbe_google.html` and `PrimeProbe_amazon.html`, which is www.google.com and www.amazon.com, respectively. (You can create 100 different Prime and Probe attack JavaScript code based on the [Website list](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/website_list.txt))
-  * Collecting WF dataset 2 websites (www.amazon.com and www.google.com) automatically using bash script (Demo version) <br/>
   `cd DefWeb/Data_Collection`<br/>
   `./run_demo.sh`<br/>
   * Collecting WF dataset 100 websites automatically using bash script (Chrome) <br/>
@@ -40,7 +40,8 @@ We develop a dynamic generative learning-based defense technique, DefWeb, to pro
 
 - Preprocessing:
   * Merged CSV file (10,000 x 6,000) is large to upload in the GitHub repository.
-  * We provide preprocessing python code ([Preprocessing_WF.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/Preprocessing_WF.ipynb)) to create WF Dataset (single csv file) with order. 
+  * We provide preprocessing python code ([Preprocessing_WF.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/Preprocessing_WF.ipynb)) to create WF Dataset (single csv file) with order.
+  * (Demo) `trainX_2_US_Chrome.csv` and `trainY_2_US_Chrome.csv` are preprocessed data for wwww.amazon.com and www.google.com. 
 
 After preprocessing the data, the final training data (trainX and trainY) will created.
 
