@@ -45,7 +45,7 @@ We develop a dynamic generative learning-based defense technique, DefWeb, to pro
 - Preprocessing:
   * Merged CSV file (10,000 x 6,000) is large to upload in the GitHub repository.
   * We provide preprocessing python code ([Preprocessing_WF.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/Preprocessing_WF.ipynb)) to create WF Dataset (single csv file) with order.
-  * (Demo) `trainX_2_US_Chrome.csv` and `trainY_2_US_Chrome.csv` are preprocessed data for wwww.amazon.com and www.google.com. 
+  * (Demo) `trainX_2_US_Chrome.csv` and `trainY_2_US_Chrome.csv` are preprocessed WF dataset for wwww.amazon.com and www.google.com. 
 
 After preprocessing the data, the final training data (trainX and trainY) will created.
 
@@ -54,7 +54,7 @@ After preprocessing the data, the final training data (trainX and trainY) will c
 - We use Convolutional Neural Networks (CNN) and Long Short-Term Memory Networks (LSTM) to conduct WF attacks.
    * We provide CNN python code ([CNN_Final.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Attack_Model/CNN_Final.ipynb)) with explanation.
    * We provide LSTM python code ([LSTM_Final.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Attack_Model/LSTM_Final.ipynb)) with explanation.
-   * Input data: Preprocessed data (For the demo, we use www.google.com and www.amazon.com)
+   * Input data: Preprocessed data (For the demo, `trainX_2_US_Chrome.csv` and `trainY_2_US_Chrome.csv`)
    * Output: Accuracy
   
 <!----
