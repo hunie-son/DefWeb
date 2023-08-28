@@ -66,7 +66,9 @@ After preprocessing the data, the final training data (trainX and trainY) will c
 
 # DefWeb :
 - VAE: We use a Generative Deep Learning Model, Variational AutoEncoder(VAE), to create dynamic noise.
-  * [DefWeb_VAE_Demo.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Defense_Model/VAE/DefWeb_VAE_Demo.ipynb) contains detailed explanations and extra experiments (can ignore while running)
+  * (Demo)[DefWeb_VAE_Demo.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Defense_Model/VAE/DefWeb_VAE_Demo.ipynb) contains detailed explanations and extra experiments (can ignore while running)
+  * (Demo) Input data: Preprocessed data (`trainX_2_US_Chrome.csv` and `trainY_2_US_Chrome.csv`)
+  * (Demo) Output data: Reconstructed data (`reconstructed_x_chrome_w2.csv`), Noisy Reconstructed data (`reconstructed_nosiy_x_chrome_w2.csv`) 
   * `DefWeb_VAE_Auto_GC.py`:  Perform VAE and reconstruct the Noisy WF dataset (100 websites) 
   * `ExtractCo3Noise_RetrainCNN_Auto.py` : Extract 1/3 of noise. Add dynamic noise to the original WF dataset and retrain the attacker's CNN model.
   * Automatically execute DefWeb using bash script <br/>
