@@ -72,9 +72,7 @@ After preprocessing the data, the final training data (trainX and trainY) will c
   * `smc_analysis_for_paper_GC.sh`: This code runs the practical noise code. You are expected to run this code.
   * `SMC_generation_visualization_artifact_code.m`: The Matlab code to visualize both analytical and practical noise templates.
   * `smc.asm`: This code creates practical noise with given repeat and delay values.
-  * `main.c`: This is the main code that runs the assembly file to create smc noise.d
-  * d
-  * d()
+  * `main.c`: This is the `main` code that runs the assembly file to create smc noise.d
   * 
 <!----
 ## Instruction to run:
