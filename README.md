@@ -56,7 +56,7 @@ After preprocessing the data, the final training data (trainX and trainY) will c
 - We use Convolutional Neural Networks (CNN) and Long Short-Term Memory Networks (LSTM) to conduct WF attacks.
    * We provide CNN python code ([CNN_Final.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Attack_Model/CNN_Final.ipynb)) with explanation.
    * We provide LSTM python code ([LSTM_Final.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Attack_Model/LSTM_Final.ipynb)) with explanation.
-   * Input data: Preprocessed data (For the demo, `trainX_2_US_Chrome.csv` and `trainY_2_US_Chrome.csv`)
+   * (Demo) Input data: Preprocessed data (`trainX_2_US_Chrome.csv` and `trainY_2_US_Chrome.csv`)
    * Output: Accuracy
   
 <!----
@@ -66,7 +66,7 @@ After preprocessing the data, the final training data (trainX and trainY) will c
 
 # DefWeb :
 - VAE: We use a Generative Deep Learning Model, Variational AutoEncoder(VAE), to create dynamic noise.
-  * (Demo)[DefWeb_VAE_Demo.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Defense_Model/VAE/DefWeb_VAE_Demo.ipynb) contains detailed explanations and extra experiments (can ignore while running)
+  * (Demo) [DefWeb_VAE_Demo.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Defense_Model/VAE/DefWeb_VAE_Demo.ipynb) contains detailed explanations and extra experiments (can ignore while running)
   * (Demo) Input data: Preprocessed data (`trainX_2_US_Chrome.csv` and `trainY_2_US_Chrome.csv`)
   * (Demo) Output data: Reconstructed data (`reconstructed_x_chrome_w2.csv`), Noisy Reconstructed data (`reconstructed_nosiy_x_chrome_w2.csv`) 
   * `DefWeb_VAE_Auto_GC.py`:  Perform VAE and reconstruct the Noisy WF dataset (100 websites) 
