@@ -10,7 +10,7 @@ We develop a dynamic generative learning-based defense technique, DefWeb, to pro
   * Tor browser version 10.5.10
 - ## Additional
   * Nvidia GeForce RTX 3090 GPU card
-  * Jupyter Notebook (Google Chrome)
+  * Jupyter Notebook (Google Colab)
   * Software: MATLAB R2021
 
 
