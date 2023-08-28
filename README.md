@@ -29,14 +29,11 @@ We develop a dynamic generative learning-based defense technique, DefWeb, to pro
   * Collecting WF dataset 100 websites automatically using bash script (Chrome) <br/>
   `cd DefWeb/Data_Collection/Chrome`<br/>
   `./run_chrome.sh`<br/>
-  * Collecting WF dataset 100 websites automatically using bash script (Firefox) <br/>
-  `cd DefWeb/Data_Collection/Firefox`<br/>
-  `./run_firefox.sh`<br/>
    * Collected 100 websites WF datasets are provided `DefWeb/Data_Collection/Chrome/Chrome_Collected_100`
 
 - Data collection for Mozilla Firefox Browser:
   * The procedure is the same as Chrome Browser [Website list](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/website_list.txt). <br/>
-   * Collecting WF dataset automatically using bash script <br/>
+   * Collecting WF dataset 100 websites automatically using bash script (Firefox) <br/>
   `cd DefWeb/Data_Collection/Firefox`<br/>
   `./run_firefox.sh`<br/>
    * Collected 100 websites WF datasets are provided `DefWeb/Data_Collection/Firefox/Firefox_Collected_100`
