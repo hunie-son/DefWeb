@@ -28,7 +28,7 @@ do
     web_file="prime_probe_Test.html"
 
 
-    data="../../../Downloads/MATLAB_CODE/width_noise_template/New/Second_Try/repeat_sleep_second_try_"$i"_"$m".csv"
+    data="Noise_Template_reapeat_sleep/repeat_sleep_second_try_"$i"_"$m".csv"
     arr_repeat=($(tail -n +1 $data | cut -d ',' -f1))
     arr_time=($(tail -n +1 $data | cut -d ',' -f2))
     #arr_label=($(tail -n +1 $data | cut -d ',' -f3))
