@@ -29,7 +29,7 @@ We develop a generative learning-based defense technique, DefWeb, to protect use
   * Full version with 100 websites is provided as Python code (.py).
   * Automatically training 100 website fingerprinting is provided as bash script code (`DefWeb_Autorun.sh`).
   * At least 3GB of disk memory space is needed to save all the datasets (WF datasets, Reconstructed datasets, Noisy datasets, and pre-trained models)
-  * Approximate time: more than 3 hours (depending on the GPU performance)
+  * Approximate time: more than 4 hours (depending on the GPU performance)
   
 
 
@@ -100,7 +100,7 @@ After preprocessing the data, the final training data (trainX and trainY) will c
     
   * `DefWeb_VAE_Auto_GC.py`:  Perform VAE and reconstruct the Noisy WF dataset (100 websites) 
   * `ExtractCo3Noise_RetrainCNN_Auto.py` : Extract 1/3 of noise. Add dynamic noise to the original WF dataset and retrain the attacker's CNN model.
-  * Automatically execute DefWeb using bash script (≈3-5 hours, depending on GPU performance)  <br/>
+  * Automatically execute DefWeb using bash script (≈4.2 hours, depending on GPU performance)  <br/>
   `cd DefWeb/Defense_Model/VAE`<br/>
   `./DefWeb_Autorun.sh`<br/> 
    
