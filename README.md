@@ -20,13 +20,15 @@ We develop a generative learning-based defense technique, DefWeb, to protect use
 - ## Data Collection
   * This process should be done in the specific microarchitecture (In our case, we use Intel TigerLake).
   * We provide Chrome browser and Firefox collection code.
+  * Approximate time: 1.3 hours for each website 
 
 - ## CNN, LSTM and VAE model training
   * We train our models in a server environment (Nvidia GeForce RTX 3090 GPU card).
   * We use Jupyter Notebook(.ipynb) for the Demo version.
   * If GPU is unavailable, Google Colab can be used for running the Demo version.
   * Full version with 100 websites is provided as Python code (.py).
-  * Automatically training 100 website fingerprinting is provided as bash script code (`DefWeb_Autorun.sh`). 
+  * Automatically training 100 website fingerprinting is provided as bash script code (`DefWeb_Autorun.sh`).
+  * Approximate time: more than 3-5 hours (depending on the GPU performance)
 
 
 # Data Collection:
@@ -96,7 +98,7 @@ After preprocessing the data, the final training data (trainX and trainY) will c
     
   * `DefWeb_VAE_Auto_GC.py`:  Perform VAE and reconstruct the Noisy WF dataset (100 websites) 
   * `ExtractCo3Noise_RetrainCNN_Auto.py` : Extract 1/3 of noise. Add dynamic noise to the original WF dataset and retrain the attacker's CNN model.
-  * Automatically execute DefWeb using bash script (Approximate time: more than 5 hours, depending on the GPU performances) <br/>
+  * Automatically execute DefWeb using bash script  <br/>
   `cd DefWeb/Defense_Model/VAE`<br/>
   `./DefWeb_Autorun.sh`<br/> 
    
