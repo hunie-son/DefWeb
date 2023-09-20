@@ -43,7 +43,7 @@ We develop a generative learning-based defense technique, DefWeb, to protect use
     
   * (Demo) Collecting WF dataset 2 websites (www.amazon.com and www.google.com) automatically using bash script  <br/>
   `cd DefWeb/Data_Collection`<br/>
-  `./run_demo.sh`<br/>
+  `./run_demo_chrome.sh`<br/>
   
   * Collecting WF dataset 100 websites automatically using bash script (Chrome) <br/>
   `cd DefWeb/Data_Collection/Chrome`<br/>
