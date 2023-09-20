@@ -18,19 +18,18 @@ We develop a generative learning-based defense technique, DefWeb, to protect use
 
 # Enviroment explanations:
 - ## Data Collection
-  * This process should be done in the specific microarchitecture (In our case, we use Intel TigerLake).
+  * This process should be done in the specific microarchitecture (In our paper, Intel TigerLake).
   * We provide Chrome browser and Firefox collection code.
-  * 
   * Approximate time: 1.3 hours for each website 
 
 - ## CNN, LSTM and VAE model training
-  * We train our models in a server environment (Nvidia GeForce RTX 3090 GPU card).
+  * This training process is done in a server environment (Nvidia GeForce RTX 3090 GPU card).
   * We use Jupyter Notebook(.ipynb) for the Demo version.
   * If GPU is unavailable, Google Colab can be used for running the Demo version.
   * Full version with 100 websites is provided as Python code (.py).
   * Automatically training 100 website fingerprinting is provided as bash script code (`DefWeb_Autorun.sh`).
-  * At least 6GB of disk memory space is needed to save all the datasets (WF datasets, Reconstructed datasets, Noisy datasets, and pre-trained models)
-  * Approximate time: more than 3-5 hours (depending on the GPU performance)
+  * At least 3GB of disk memory space is needed to save all the datasets (WF datasets, Reconstructed datasets, Noisy datasets, and pre-trained models)
+  * Approximate time: more than 3 hours (depending on the GPU performance)
   
 
 
