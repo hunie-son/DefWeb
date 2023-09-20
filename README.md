@@ -45,24 +45,24 @@ We develop a generative learning-based defense technique, DefWeb, to protect use
 - Data collection for Google Chrome Browser:
   * (Demo) `PrimeProbe_google.html` and `PrimeProbe_amazon.html` are JavaScript codes of Prime and Probe attack created by Dr. Yossi Oren's research team. (You can create 100 different Prime and Probe attack JavaScript codes based on the [Website list](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/website_list.txt))
     
-  * (Demo) Collecting WF dataset 2 websites (www.amazon.com and www.google.com) automatically using bash script  <br/>
+  * (Demo) Collecting WF dataset 2 websites (www.amazon.com and www.google.com) automatically using bash script (≈2.5 hours)  <br/>
   `cd DefWeb/Data_Collection`<br/>
   `./run_demo_chrome.sh`<br/>
   
-  * Collecting WF dataset 100 websites automatically using bash script (Chrome) <br/>
+  * Collecting WF dataset 100 websites automatically using bash script (Chrome) (≈120 hours) <br/>
   `cd DefWeb/Data_Collection/Chrome`<br/>
   `./run_chrome.sh`<br/>
   
    * Collected 100 websites WF datasets are provided `DefWeb/Data_Collection/Chrome/Chrome_Collected_100`
 
 - Data collection for Mozilla Firefox Browser:
-  * (Demo) Collecting WF dataset 2 websites (www.amazon.com and www.google.com) automatically using bash script  <br/>
+  * (Demo) Collecting WF dataset 2 websites (www.amazon.com and www.google.com) automatically using bash script (≈2.5 hours)  <br/>
   `cd DefWeb/Data_Collection`<br/>
   `./run_demo_firefox.sh`<br/>
   
   * The procedure is the same as Chrome Browser [Website list](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/website_list.txt). <br/>
   
-   * Collecting WF dataset 100 websites automatically using bash script (Firefox) <br/>
+   * Collecting WF dataset 100 websites automatically using bash script (Firefox) (≈120 hours) <br/>
   `cd DefWeb/Data_Collection/Firefox`<br/>
   `./run_firefox.sh`<br/>
    * Collected 100 websites WF datasets are provided `DefWeb/Data_Collection/Firefox/Firefox_Collected_100`
@@ -94,13 +94,13 @@ After preprocessing the data, the final training data (trainX and trainY) will c
 
 # DefWeb :
 - VAE: We use a Generative Deep Learning Model, Variational AutoEncoder(VAE), to create dynamic noise.
-  * (Demo) [DefWeb_VAE_Demo.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Defense_Model/VAE/DefWeb_VAE_Demo.ipynb) contains detailed explanations (Approximate time: ~10min).
+  * (Demo) [DefWeb_VAE_Demo.ipynb](https://github.com/hunie-son/DefWeb/blob/main/Defense_Model/VAE/DefWeb_VAE_Demo.ipynb) contains detailed explanations (≈10 min).
   * (Demo) Input data: Preprocessed data (`trainX_2_US_Chrome.csv` and `trainY_2_US_Chrome.csv`)
   * (Demo) Output data: Reconstructed data (`reconstructed_x_chrome_w2.csv`), Noisy Reconstructed data (`reconstructed_nosiy_x_chrome_w2.csv`)
     
   * `DefWeb_VAE_Auto_GC.py`:  Perform VAE and reconstruct the Noisy WF dataset (100 websites) 
   * `ExtractCo3Noise_RetrainCNN_Auto.py` : Extract 1/3 of noise. Add dynamic noise to the original WF dataset and retrain the attacker's CNN model.
-  * Automatically execute DefWeb using bash script  <br/>
+  * Automatically execute DefWeb using bash script (≈3-5 hours, depending on GPU performance)  <br/>
   `cd DefWeb/Defense_Model/VAE`<br/>
   `./DefWeb_Autorun.sh`<br/> 
    
