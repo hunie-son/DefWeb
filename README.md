@@ -16,7 +16,7 @@ We develop a generative learning-based defense technique, DefWeb, to protect use
 - ## Additional
   * Software: MATLAB R2021
 
-# Enviroment explanations:
+# Environment explanations:
 - ## Data Collection
   * This process should be done in the specific microarchitecture (In our paper, Intel TigerLake).
   * We provide Chrome browser and Firefox collection code.
