@@ -52,6 +52,10 @@ We develop a generative learning-based defense technique, DefWeb, to protect use
    * Collected 100 websites WF datasets are provided `DefWeb/Data_Collection/Chrome/Chrome_Collected_100`
 
 - Data collection for Mozilla Firefox Browser:
+  * (Demo) Collecting WF dataset 2 websites (www.amazon.com and www.google.com) automatically using bash script  <br/>
+  `cd DefWeb/Data_Collection`<br/>
+  `./run_demo_firefox.sh`<br/>
+  
   * The procedure is the same as Chrome Browser [Website list](https://github.com/hunie-son/DefWeb/blob/main/Data_Collection/website_list.txt). <br/>
   
    * Collecting WF dataset 100 websites automatically using bash script (Firefox) <br/>
