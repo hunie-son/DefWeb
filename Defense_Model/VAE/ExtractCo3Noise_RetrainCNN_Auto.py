@@ -263,7 +263,7 @@ def model_create(x=None):
   x = layers.Conv1D(64, 3, activation="relu", padding="same")(x)
   x = MaxPooling1D(pool_size=3)(x)
 
-    x = layers.Conv1D(128, 3, activation="relu", padding="same")(x)
+  x = layers.Conv1D(128, 3, activation="relu", padding="same")(x)
   x = MaxPooling1D(pool_size=3)(x)
   
   x = layers.Dropout(0.3)(x)
