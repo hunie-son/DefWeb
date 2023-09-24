@@ -121,6 +121,11 @@ After preprocessing the data, the final training data (trainX and trainY) will c
   * `smc.asm`: This code creates practical noise with given repeat and delay values.
     
   * `main.c`: This is the `main` code that runs the assembly file to create smc noise.
+ 
+  * `prog_800` creation: 
+  `nasm smc.asm -f elf64 -o smc_800.o`<br/>
+  `gcc -c main.c -O2 -o main.o`<br/>
+  `gcc main.o smc_800.o -o prog_800`<br/> 
     
 <!----
 
