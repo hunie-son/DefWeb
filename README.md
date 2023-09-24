@@ -122,7 +122,7 @@ After preprocessing the data, the final training data (trainX and trainY) will c
     
   * `main.c`: This is the `main` code that runs the assembly file to create smc noise.
  
-  * `prog_800` creation: 
+  * `prog_800` creation: <br/>
   `nasm smc.asm -f elf64 -o smc_800.o`<br/>
   `gcc -c main.c -O2 -o main.o`<br/>
   `gcc main.o smc_800.o -o prog_800`<br/> 
