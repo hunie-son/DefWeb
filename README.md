@@ -151,11 +151,11 @@ After preprocessing the data, the final training data (trainX and trainY) will c
   
   * Automatically execute Performance Tool (Chrome browser with PnP attack + Noise) using bash script <br/>
   `cd DefWeb/Performance_Tool`<br/>
-  `./loadingTime_PnP_noise_GC.sh.sh`<br/>
+  `./loadingTime_PnP_noise_GC.sh`<br/>
   
   * Automatically execute Performance Tool (Mozilla Firefox with PnP attack + Noise) using bash script <br/>
   `cd DefWeb/Performance_Tool`<br/>
-  `./loadingTime_PnP_noise_FF.sh.sh`<br/> 
+  `./loadingTime_PnP_noise_FF.sh`<br/> 
 
 
   
